@@ -1,4 +1,4 @@
-# Planificateur repas
+# Vit'fée (Planificateur repas)
 
 Application permettant de planifier les repas de la semaine !
 
