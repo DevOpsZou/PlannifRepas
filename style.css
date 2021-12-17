@@ -1,0 +1,86 @@
+body{
+    background-color: #16c8e7;
+
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-image: url("images/pomme.jpg");
+
+
+}
+
+.col-sm-5{
+    margin: auto;
+
+}
+
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #9991ff;
+    background-clip: border-box;
+    border: 1
+px
+ solid rgba(0,0,0,.125);
+    border-radius: 0.25
+rem
+;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #ec9680;
+    border-color: #ec9680;
+}
+
+/* bouton */
+.btnabo {
+  
+    
+    margin-top: 5%;
+    
+    margin-left: 30%;
+    }
+
+
+
+
+/* carte */
+
+#ok {
+    width: 130%
+    ;
+margin-top: 15%;
+
+margin-left: 5%;
+}
+
+#okabo {
+  
+    
+margin-top: 15%;
+
+margin-left: 15%;
+}
+#profil {
+    
+    
+   padding-right: 10%;
+   margin-bottom: 10%;
+  
+}
+
+#grille {
+    
+   
+    
+}
+
+#haut {
+    padding-left: 5%;
+    padding-top: 10%;
+}
+
