@@ -8,15 +8,22 @@ class RecipeController():
         self.iddeplacement=None
         
 
-    def read(self, recipe):
-        print("JE suis la")
-        result = recipe.read()
+    def readEntree(self, recipe):
         
-        return render_template("displayPlanWeek.html", data= result, len=len(result))
+        result = recipe.readEntree()
+        
+        return render_template("entree.html", data= result, len=len(result))
+    
+    def readPlat(self, recipe):
+            
+        result = recipe.readPlat()
+        
+        return render_template("plat.html", data= result, len=len(result))
+    
         
     def readRecipe(self, recipe, id):
-        print("JE suis la")
+       
         result = recipe.readRecipe(id)
-        print(result)
+       
         return render_template("displayRecipe.html", data= result, len=len(result))
         

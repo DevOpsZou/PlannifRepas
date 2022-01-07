@@ -17,11 +17,19 @@ def index():
 
 
 #---------------------------------CRUD DEPLACEMENT------------------------------#
-@app.route("/displayPlanWeek")
+@app.route("/accueil")
 def displayPlanWeek():
-    return recipeController.read(recipe)
+    return render_template("accueil.html")
 
 
+@app.route("/entree")
+def displayPlanWeekentree():
+    return recipeController.readEntree(recipe)
+
+
+@app.route("/plat")
+def displayPlanWeekplat():
+    return recipeController.readPlat(recipe)
 
 @app.route('/displayRecipe/<int:id>', methods = ['GET', 'POST'])
 def displayRecipe(id):
