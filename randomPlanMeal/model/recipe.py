@@ -6,20 +6,30 @@ class Recipe(Db):
     
     
     #-------------------CRUD METHOD------------------------------------------------#
-    def read(self):
+    def readPlat(self):
         self.cursor=self.getCursor()
+        rows=[]
         queryPlat=f"""SELECT id_recette, nom_recette, nom_categorie FROM recette join categorie 
         on recette.fk_id_categorie = categorie.id_categorie 
         and nom_categorie ='Plat principal' ORDER BY RAND() LIMIT 14"""
+        self.cursor.execute(queryPlat)
+        for elem in self.cursor.fetchall():
+            rows.append(elem)
+        self.cursor.close()
+      
+        return rows
+
+    def readEntree(self):
+        self.cursor=self.getCursor()
         rows=[]
         queryEntree=f"""SELECT id_recette, nom_recette, nom_categorie FROM recette join categorie 
         on recette.fk_id_categorie = categorie.id_categorie 
         and nom_categorie ='Entree' ORDER BY RAND() LIMIT 14"""
-        queries = [queryPlat, queryEntree]
-        for query in queries :
-            self.cursor.execute(query)
-            for elem in self.cursor.fetchall():
-                rows.append(elem)
+        # queries = [queryPlat, queryEntree]
+        # for query in queries :
+        self.cursor.execute(queryEntree)
+        for elem in self.cursor.fetchall():
+            rows.append(elem)
         self.cursor.close()
       
         return rows
@@ -63,7 +73,7 @@ class Recipe(Db):
                    elif k == "etape_desc" :
                        dictRecipe["etape_desc"] = elem.get("etape_desc")
                    elif k == "duree_recette" :
-                           dictRecipe["duree_recette"] = elem.get("duree_recette")
+                        dictRecipe["duree_recette"] = elem.get("duree_recette")
                   
         dictRecipe["nom_ingredient"] = rowsIngredients        
         self.cursor.close()
