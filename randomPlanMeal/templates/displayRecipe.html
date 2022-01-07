@@ -55,17 +55,19 @@
                         <div class="col-sm-5-center" >
                             <section class="recette" id="ingredient">
                                 <h3>Ingredients </h3>    
-                                       {%for value in data%}   
-                                            <li>{{value.get('nom_ingredient')}}</li>
+                                         
+                                            
+                                        {%for value in data.get('nom_ingredient')%} 
+                                       <li> {{value.get("quantite")}} {{value.get("mesure")}} de {{value.get("nom_ingredient")}} </li>
                                         {% endfor %} 
                               
                             </section>
                             <section class="recette" id="etape">
                             <h3>Etapes </h3>    
                         
-                            {%for value in data%}   
-                            <li>{{value.get('etape_desc')}}</li>
-                            {% endfor %} 
+                          
+                            <li>{{data.get('etape_desc')}}</li>
+                         
                                     
                               
                             

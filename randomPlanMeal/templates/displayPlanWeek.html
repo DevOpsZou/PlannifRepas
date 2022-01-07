@@ -81,7 +81,7 @@
                                         {%for i in range(0, len-7)%}   
                                        
                                                           
-                                        <td>{{data[i].get('nom_recette')}}</td>
+                                        <td>{{data[i].get('nom_categorie')}} : {{data[i].get('nom_recette')}}</td>
                                                                               
                                          
                                          {% endfor %} 
@@ -92,7 +92,7 @@
                                     {%for i in range(len-7, len)%}   
                                        
                                                
-                                    <td> <a href="{{url_for('displayRecipe', id = data[i].get('id_recette'))}}">{{data[i].get('nom_recette')}}</a></td>
+                                    <td> <a href="{{url_for('displayRecipe', id = data[i].get('id_recette'))}}">{{data[i].get('nom_categorie')}} : {{data[i].get('nom_recette')}}</a></td>
                                                                    
                                          
                                          {% endfor %} 
