@@ -55,7 +55,7 @@
                                                         <section class="recette" id="ingredient">
                                                             <h3>Ingredients </h3>    
                                                                    {%for value in data%}   
-                                                                        <li>{{value.get('nom_ingredient')}}</li>
+                                                                        <div>{{value.get('nom_ingredient')}}</div>
                                                                     {% endfor %} 
                                                           
                                                         </section>
@@ -63,7 +63,7 @@
                                                         <h3>Etapes </h3>    
                                                     
                                                         {%for value in data%}   
-                                                        <li>{{value.get('etape_desc')}}</li>
+                                                        <div>{{value.get('etape_desc')}}</div>
                                                         {% endfor %}
                                                         
                                                         
