@@ -57,7 +57,6 @@ class Recipe(Db):
                    if k == "nom_ingredient" :
                         dictIngredients={}
                         dictIngredients["nom_ingredient"]=elem.get("nom_ingredient")
-                        print("Je suis ici", elem.get("nom_ingredient"))
                        
                    elif k == "id_recette" :
                         dictRecipe["id_recette"] = elem.get("id_recette")
@@ -65,10 +64,9 @@ class Recipe(Db):
                         dictRecipe["nom_recette"] = elem.get("nom_recette")
                    elif k == "quantite" :
                         dictIngredients["quantite"] = elem.get("quantite")
-                       
                    elif k == "mesure" :
                         dictIngredients["mesure"] = elem.get("mesure")
-                        print(dictIngredients)
+                       
                         rowsIngredients.append(dictIngredients)
                    elif k == "etape_desc" :
                        dictRecipe["etape_desc"] = elem.get("etape_desc")
