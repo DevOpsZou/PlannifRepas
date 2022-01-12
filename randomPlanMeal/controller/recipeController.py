@@ -26,4 +26,7 @@ class RecipeController():
         result = recipe.readRecipe(id)
        
         return render_template("displayRecipe.html", data= result, len=len(result))
-        
+ 
+
+
+            
