@@ -1,4 +1,14 @@
-docker run -d -p 
-3310:3306 --name 
-myls -e MYSQL_ROOT_PASSWORD=root  
-dbsql --default-authentication-plugin=mysql_native_password
+version: '3.9'
+services:
+  db:
+    build: .
+    env_file:
+      - ../randomPlanMeal/.env
+    ports:
+      - ${PORT}:${PORTC}
+    # command: --default-authentication-plugin=mysql_native_password
+    
+    environment:
+      MYSQL_ROOT_PASSWORD : root
+    volumes: 
+      - ./data:/var/lib/mysql
