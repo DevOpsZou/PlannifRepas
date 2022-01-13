@@ -15,7 +15,7 @@ class Db():
                 password=os.getenv('PASSWORD'),
                 host = os.getenv('HOST'),
                 database=os.getenv('DATABASE'),
-                port=os.getenv('PORT'),
+                port=3306,
                 auth_plugin='mysql_native_password'
             )
         self.conn.autocommit=True
