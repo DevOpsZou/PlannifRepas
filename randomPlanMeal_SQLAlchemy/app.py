@@ -3,9 +3,6 @@ from flask import Flask, render_template
 from model.recipe import Recipe
 from controller.recipeController import RecipeController
 
-
-
-
 app = Flask(__name__)
 
 recipe = Recipe() 
@@ -36,9 +33,5 @@ def displayRecipe(id):
     return recipeController.readRecipe(recipe, id)
 
 
-
-<<<<<<<< HEAD:randomPlanMeal_SQLAlchemy/app.py
-app.run()
-========
 app.run(host='0.0.0.0')
->>>>>>>> 0ccab6580c97f5456da25847d0b0bdfab29e9adf:randomPlanMeal_MySqlConnector/app.py
+

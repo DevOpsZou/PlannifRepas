@@ -10,9 +10,9 @@ le fichier requirements.txt contient tout ce qui est nécessaire pour le fonctio
  Dans le dossier database il y a un dump sql et deux images qui expliquent les deux étapes pour restorer la database.
 
 
- ## configuration dans .env  
+ ## Configuration dans .env  
  Dans .env mettez vos informations de connexion à la BD. Exemple : USER=youruser -> remplacer youruser par votre nom utilisateur.
 
 
- ## Rmarques :
+ ## Remarques :
  Les templates (html, css ...) que j'utilise c'est juste pour tester mon backend, à terme ils seront remplacées par les templates de Romy et Randy 
