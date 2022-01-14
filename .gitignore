@@ -1,2 +1,4 @@
 randomPlanMeal_MySqlConnector/.env
 randomPlanMeal_MySqlConnector/venv
+randomPlanMeal_SQLAlchemy/.env
+randomPlanMeal_SQLAlchemy/venv
