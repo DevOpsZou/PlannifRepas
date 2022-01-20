@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-
 from model.recipe import Recipe
 from controller.recipeController import RecipeController
 
@@ -19,18 +18,18 @@ def displayPlanWeek():
     return render_template("accueil.html")
 
 
-@app.route("/entree")
-def displayPlanWeekentree():
-    return recipeController.readEntree(recipe)
+# @app.route("/entree")
+# def displayPlanWeekentree():
+#     return recipeController.readEntree(recipe)
 
 
-@app.route("/plat")
-def displayPlanWeekplat():
-    return recipeController.readPlat(recipe)
+# @app.route("/plat")
+# def displayPlanWeekplat():
+#     return recipeController.readPlat(recipe)
 
-@app.route('/displayRecipe/<int:id>', methods = ['GET', 'POST'])
-def displayRecipe(id):
-    return recipeController.readRecipe(recipe, id)
+# @app.route('/displayRecipe/<int:id>', methods = ['GET', 'POST'])
+# def displayRecipe(id):
+#     return recipeController.readRecipe(recipe, id)
 
 
 # app.run(host='0.0.0.0')
