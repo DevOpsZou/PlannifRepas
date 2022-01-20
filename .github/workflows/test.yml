@@ -22,4 +22,5 @@ jobs:
         pip install -r randomPlanMeal_SQLAlchemy/requirements.txt; 
     - name: Test with unittest
       run: |
+        cd randomPlanMeal_SQLAlchemy
         python -m unittest
