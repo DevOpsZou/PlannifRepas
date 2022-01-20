@@ -4,8 +4,8 @@ from controller.recipeController import RecipeController
 
 app = Flask(__name__)
 
-recipe = Recipe() 
-recipeController = RecipeController()
+# recipe = Recipe() 
+# recipeController = RecipeController()
 
 
 @app.route("/")
