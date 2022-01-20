@@ -12,9 +12,9 @@ from unittest.mock import Mock, patch
 
 
 class test_routes(unittest.TestCase):
-    def setUp(self):
-        self.db = Db()
-        self.recipe = Recipe()
+    # def setUp(self):
+    #     self.db = Db()
+    #     self.recipe = Recipe()
     
     def test_routes(self):
         test=app.test_client(self)
