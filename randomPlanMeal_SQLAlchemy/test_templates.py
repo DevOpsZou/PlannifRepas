@@ -34,10 +34,10 @@ class test_routes(unittest.TestCase):
             content=response.content_type
             self.assertEqual(content, "text/html; charset=utf-8")      
     
-    @pytest.fixture(scope="function")
-    def SessionLocal():
-        TEST_SQLALCHEMY_DATABASE_URL = "sqlite:///./test_temp.db"
-        assert database_exists(TEST_SQLALCHEMY_DATABASE_URL), "Test database already exists. Aborting tests."
+    # @pytest.fixture(scope="function")
+    # def SessionLocal():
+    #     TEST_SQLALCHEMY_DATABASE_URL = "sqlite:///./test_temp.db"
+    #     assert database_exists(TEST_SQLALCHEMY_DATABASE_URL), "Test database already exists. Aborting tests."
    
    
     # @patch('model.db.Db.logging')
@@ -60,6 +60,6 @@ class test_routes(unittest.TestCase):
     #         # self.assertEqual("result", 'result data')
     #         self.assertEqual(mock_db.call_count, '1')
     #         self.assertEqual(mock_db.query_all_data.call_count, 1)
-if __name__ == '__main__':
+# if __name__ == '__main__':
    
-    unittest.main()
+#     unittest.main()
