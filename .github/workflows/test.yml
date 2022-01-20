@@ -23,4 +23,5 @@ jobs:
     - name: Test with unittest
       run: |
         cd randomPlanMeal_SQLAlchemy
-        python -m unittest
+        coverage run -m unittest 
+        coverage report -m
