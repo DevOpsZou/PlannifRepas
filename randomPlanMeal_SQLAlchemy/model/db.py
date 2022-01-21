@@ -17,8 +17,8 @@ Date : 13/01/2022
 '''
 class Db():
     
-    def __init__(self, value=load_dotenv()):
-      
+    def __init__(self, value):
+        
         self.url=value
         self.logging()
       
@@ -41,22 +41,23 @@ class Db():
     def logging(self):
         """[contains code to connect to database : recettebis]
         """
-     
-        self.engine = create_engine(self.url)
-        self.DBSession = sessionmaker(bind=self.engine)
-        self.session = self.DBSession()
-        self.metadata = MetaData()
-        self.metadata.reflect(self.engine)
-        self.Base = automap_base(metadata=self.metadata)
-        self.metadata.reflect(self.engine)
-        self.Base.prepare()
-        self.Recette = self.Base.classes.recette
-        self.Categorie = self.Base.classes.categorie
-        self.Recette_ingredient=self.Base.classes.recette_ingredients
-        self.Ingredient=self.Base.classes.ingredient
-        self.Etapes=self.Base.classes.etapes
-            
-    
+        if self.url != "sqlite:///" :
+            self.engine = create_engine(self.url)
+            self.DBSession = sessionmaker(bind=self.engine)
+            self.session = self.DBSession()
+            self.metadata = MetaData()
+            self.metadata.reflect(self.engine)
+            self.Base = automap_base(metadata=self.metadata)
+            self.metadata.reflect(self.engine)
+            self.Base.prepare()
+
+            self.Recette = self.Base.classes.recette
+            self.Categorie = self.Base.classes.categorie
+            self.Recette_ingredient=self.Base.classes.recette_ingredients
+            self.Ingredient=self.Base.classes.ingredient
+            self.Etapes=self.Base.classes.etapes
+
+      
  
      
 

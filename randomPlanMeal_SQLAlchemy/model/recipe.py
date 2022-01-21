@@ -8,18 +8,17 @@ from sqlalchemy.orm import defer
 from sqlalchemy.orm import undefer
 from sqlalchemy.sql.expression import func
 
-class Recipe(Db):
-    def __init__(self):
-       super().__init__()
+class Recipe():
+    def __init__(self,db):
+        self.db=db
       
-    
+    # @classmethod
     def readPlat(self):
-     
         self.resultQuety=[]
-        self.test=self.session.query(self.Recette).\
-            with_entities(self.Recette.id_recette, self.Recette.nom_recette, self.Categorie.nom_categorie).\
-            join(self.Categorie).\
-            filter(self.Categorie.nom_categorie.like("Plat principal")).\
+        self.test=self.db.session.query(self.db.Recette).\
+            with_entities(self.db.Recette.id_recette, self.db.Recette.nom_recette, self.db.Categorie.nom_categorie).\
+            join(self.db.Categorie).\
+            filter(self.db.Categorie.nom_categorie.like("Plat principal")).\
                 order_by(func.rand()).limit(14)
         self.result=self.test.all()
         for ele in self.result:
@@ -31,10 +30,10 @@ class Recipe(Db):
     def readEntree(self):
          
         self.resultQuety=[]
-        self.test=self.session.query(self.Recette).\
-            with_entities(self.Recette.id_recette, self.Recette.nom_recette, self.Categorie.nom_categorie).\
-            join(self.Categorie).\
-            filter(self.Categorie.nom_categorie.like("Entree")).\
+        self.test=self.db.session.query(self.db.Recette).\
+            with_entities(self.db.Recette.id_recette, self.db.Recette.nom_recette, self.db.Categorie.nom_categorie).\
+            join(self.db.Categorie).\
+            filter(self.db.Categorie.nom_categorie.like("Entree")).\
                 order_by(func.rand()).limit(14)
         self.result=self.test.all()
         for ele in self.result:
@@ -50,14 +49,14 @@ class Recipe(Db):
         dictIngredients={}
         rowsIngredients=[]
      
-        self.test=self.session.query(self.Recette).\
-            with_entities(self.Recette.id_recette, self.Recette.nom_recette, self.Recette.duree_recette,
-                          self.Ingredient.nom_ingredient, self.Recette_ingredient.quantite, 
-                          self.Recette_ingredient.mesure, self.Etapes.etape_desc).\
-            join(self.Recette_ingredient, self.Recette_ingredient.fk_id_recette==self.Recette.id_recette).\
-                join(self.Ingredient, self.Ingredient.id_ingredient==self.Recette_ingredient.fk_id_ingredient).\
-                join(self.Etapes, self.Etapes.fk_id_recette=={id}).\
-            filter(self.Recette.id_recette=={id})
+        self.test=self.db.session.query(self.db.Recette).\
+            with_entities(self.db.Recette.id_recette, self.db.Recette.nom_recette, self.db.Recette.duree_recette,
+                          self.db.Ingredient.nom_ingredient, self.db.Recette_ingredient.quantite, 
+                          self.db.Recette_ingredient.mesure, self.db.Etapes.etape_desc).\
+            join(self.db.Recette_ingredient, self.db.Recette_ingredient.fk_id_recette==self.db.Recette.id_recette).\
+                join(self.db.Ingredient, self.db.Ingredient.id_ingredient==self.db.Recette_ingredient.fk_id_ingredient).\
+                join(self.db.Etapes, self.db.Etapes.fk_id_recette=={id}).\
+            filter(self.db.Recette.id_recette=={id})
         
         self.result=self.test.all()
         for ele in self.result:
@@ -87,7 +86,5 @@ class Recipe(Db):
                   
         dictRecipe["nom_ingredient"] = rowsIngredients        
       
-       
-       
         return  dictRecipe
 
