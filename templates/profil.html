@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="static/css/styles.css" rel="stylesheet" />
     </head>
     <body>
         <header>
@@ -29,10 +29,10 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="accueil.html">Home</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="profil.html">Profil</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="abonnement.html">Abonemment</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Index.html">Se connecter</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/accueil">Home</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/profil">Profil</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/abonnement">Abonemment</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/">Se connecter</a></li>
                     </ul>
                 </div>
             </div>
@@ -45,30 +45,29 @@
                             <div class="col-sm-5">
                             <form>  
                                 <div class="form-group">  
-                                  <label for="email">Adresse électronique:</label>  
-                                  <input type="email" class="form-control" id="email" placeholder="Entrez votre email">  
+                                    <label for="email">Adresse électronique:</label>  
+                                    <input type="email" class="form-control" id="email" placeholder="Entrez votre email">  
                                 </div>  
                                 <div class="form-group">  
-                                  <label for="pwd">Mot de passe:</label>  
-                                  <input type="password" class="form-control" id="pwd" placeholder="Entrez votre mot de passe">  
+                                    <label for="pwd">Mot de passe:</label>  
+                                    <input type="password" class="form-control" id="pwd" placeholder="Entrez votre mot de passe">  
                                 </div>  
                                 <div class="form-group">  
-                                  <label for="pwd">Mot de passe:</label>  
-                                  <input type="password" class="form-control" id="pwd" placeholder="Entrez votre date de naissance">  
+                                    <label for="date">Date de naissance :</label>  
+                                    <input type="text" class="form-control" id="date" placeholder="Entrez votre date de naissance">  
                                 </div>  
                                 <div class="form-group">  
-                                  <label for="pwd">Mot de passe:</label>  
-                                  <input type="password" class="form-control" id="pwd" placeholder="Entrez votre Nom">  
+                                    <label for="nom">Nom :</label>  
+                                    <input type="text" class="form-control" id="nom" placeholder="Entrez votre Nom">  
                                 </div>  
                                 <div class="form-group">  
-                                  <label for="pwd">Mot de passe:</label>  
-                                  <input type="password" class="form-control" id="pwd" placeholder="Entrez votre prénom">  
+                                    <label for="prenom">Prénom :</label>  
+                                    <input type="text" class="form-control" id="prenom" placeholder="Entrez votre prénom">  
                                 </div>  
                                 <div class="form-check">  
-                                   
                                 </div>  
-                                <a href="Accueil.html" class="btn btn-success">Envoyer</a> 
-                              </form>
+                                <a href="accueil.html" class="btn btn-success">Envoyer</a> 
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -82,6 +81,6 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="static/js/scripts.js"></script>
     </body>
 </html>
