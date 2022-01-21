@@ -24,7 +24,7 @@ class test_routes(unittest.TestCase):
         self.recipe.readPlat=MagicMock(return_value=["1", "recette","3"])
         self.recipe.readEntree=MagicMock(return_value=["1", "recette","3"])
         resultPlat=self.recipe.readPlat()
-        resultEntree=self.recipe.readEntree
+        resultEntree=self.recipe.readEntree()
         self.appMain = create_app(dbMoke, self.recipe)
         self.test = self.appMain.test_client(self)
               
