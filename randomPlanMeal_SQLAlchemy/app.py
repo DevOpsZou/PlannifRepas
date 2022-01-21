@@ -12,12 +12,10 @@ def create_app(db, recipe):
 
     @app.route("/")
     def index():
-        print("HAhahha")
         return render_template("index.html")
 
     @app.route("/accueil")
     def displayPlanWeek():
-        print("HAhahha", "ici")
         return render_template("accueil.html")
 
     @app.route("/entree")
