@@ -42,6 +42,7 @@ class Db():
         """[contains code to connect to database : recettebis]
         """
         if self.url != "sqlite:///" :
+            print(self.url)
             self.engine = create_engine(self.url)
             self.DBSession = sessionmaker(bind=self.engine)
             self.session = self.DBSession()
