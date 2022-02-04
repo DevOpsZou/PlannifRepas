@@ -30,6 +30,7 @@ jobs:
     #       cd randomPlanMeal_SQLAlchemy
     #       docker build -t zafoutni/plannifrepas:latest .
     #fff
+    #eee
     - name: Build and Push Docker Image
       uses: mr-smithers-excellent/docker-build-push@v4
 
