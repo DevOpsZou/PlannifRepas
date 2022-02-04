@@ -4,5 +4,5 @@ WORKDIR /dump
 
 ENV MYSQL_DATABASE recettebis
 
-COPY databasesrecette/DumpDatabases.sql  /docker-entrypoint-initdb.d/
+COPY DumpDatabases.sql  /docker-entrypoint-initdb.d/
 

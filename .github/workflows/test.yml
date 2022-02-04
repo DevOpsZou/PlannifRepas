@@ -59,7 +59,7 @@ jobs:
         image: zafoutni/plannifrepas
         registry: docker.io
        
-        dockerfile: Dockerfile
+        dockerfile: databasesrecette/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
