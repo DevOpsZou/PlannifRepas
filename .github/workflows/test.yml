@@ -28,7 +28,7 @@ jobs:
     - name: Build with dockerfile
       run:  |
           cd randomPlanMeal_SQLAlchemy
-          dockerfile build -t zafoutni/plannifrepas:latest
+          docker build -t zafoutni/plannifrepas:latest .
 
     - name: Build and Push Docker Image
       uses: mr-smithers-excellent/docker-build-push@v4
