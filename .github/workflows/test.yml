@@ -25,15 +25,15 @@ jobs:
         cd randomPlanMeal_SQLAlchemy
         coverage run -m unittest 
         coverage report -m
-    - name: Build with dockerfile
-      run:  |
-          cd randomPlanMeal_SQLAlchemy
-          docker build -t zafoutni/plannifrepas:latest .
+    # - name: Build with dockerfile
+    #   run:  |
+    #       cd randomPlanMeal_SQLAlchemy
+    #       docker build -t zafoutni/plannifrepas:latest .
 
     - name: Build and Push Docker Image
       uses: mr-smithers-excellent/docker-build-push@v4
       with:
-        image: zafoutni/plannifrepas:latest
+        image: ./randomPlanMeal_SQLAlchemy/Dockerfile
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
