@@ -32,8 +32,7 @@ jobs:
     #fff
     - name: Build and Push Docker Image
       uses: mr-smithers-excellent/docker-build-push@v4
-      run: |
-         cd randomPlanMeal_SQLAlchemy
+
       with:
         image: zafoutni/plannifrepas
         registry: docker.io
