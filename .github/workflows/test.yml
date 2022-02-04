@@ -35,6 +35,8 @@ jobs:
       with:
         image: zafoutni/plannifrepas
         registry: docker.io
+        run: |
+         cd randomPlanMeal_SQLAlchemy
         dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
