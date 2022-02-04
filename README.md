@@ -61,3 +61,6 @@ _(pour le lien mettez simplement l'URL de votre projet suivi de ``/contirubors``
 
 Ce projet est sous licence ``exemple: WTFTPL`` - voir le fichier [LICENSE.md](LICENSE.md) pour plus d'informations
 
+## Image Docker
+docker tag plannifrepas_admin:latest zafoutni/plannifrepas:latest
+docker push new-repo:tagname

@@ -13,7 +13,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD : root
     volumes: 
-      - ./data:/var/lib/mysql
+      - ./dataSave:/var/lib/mysql
 # networks:
 #   antoine:
 #     external: true

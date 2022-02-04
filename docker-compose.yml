@@ -1,16 +1,5 @@
 version: '3.7'
 services: 
-  # userdb:
-  #   build: ./databaseuser/.
-  #   ports:
-  #   - 3306:3306
-  #   command: --default-authentication-plugin=mysql_native_password
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD : root
-  #   volumes: 
-  #     - ./databaseuser/data:/var/lib/mysql
-  #   networks:
-  #     - web
   mysqldb:
     build: ./databasesrecette/.
     ports:

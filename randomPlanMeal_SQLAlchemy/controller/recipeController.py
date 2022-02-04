@@ -2,12 +2,9 @@ from flask import render_template, jsonify
 
 class RecipeController():
     def __init__(self):
-        self.iddeplacement=None
+        pass
     def readPlat(self, recipe):
         result = recipe.readPlat()
-        print(type(result))
-        print (type(jsonify(result)))
-        # return render_template("plat.html", data= result, len=len(result))
         return jsonify(result)
     
     def readEntree(self, recipe):

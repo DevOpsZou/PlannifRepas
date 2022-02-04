@@ -1,8 +1,0 @@
-FROM mysql:8.0.27
-
-WORKDIR /dump
-
-ENV MYSQL_DATABASE users
-
-COPY dumpsUser.sql /docker-entrypoint-initdb.d/
-
