@@ -28,13 +28,13 @@ class test_routes(unittest.TestCase):
         self.appMain = create_app(dbMoke, self.recipe)
         self.test = self.appMain.test_client(self)
               
-        self.routes =["/","/accueil"]
-        for route in self.routes :
-            response= self.test.get(route)
-            statuscode=response.status_code
-            self.assertEqual(statuscode, 200)
-        with self.appMain.test_request_context('/displayRecipe/?id=5'):
-             assert request.args['id'] == '5'
+        # self.routes =["/","/accueil"]
+        # for route in self.routes :
+        #     response= self.test.get(route)
+        #     statuscode=response.status_code
+        #     self.assertEqual(statuscode, 200)
+        # with self.appMain.test_request_context('/displayRecipe/?id=5'):
+        #      assert request.args['id'] == '5'
                      
         self.assertEqual(resultPlat, ["1", "recette","3"])
         self.assertEqual(resultEntree, ["1", "recette","3"])
