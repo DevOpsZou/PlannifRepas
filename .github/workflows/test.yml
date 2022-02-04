@@ -1,9 +1,9 @@
 name: Python application
 on:
   push:
-    branches: [ develop  ]
+    branches: [ feat/microServicesApp ]
   pull_request:
-    branches: [ develop ]
+    branches: [ feat/microServicesApp ]
 jobs:
   build:
     runs-on: ubuntu-latest
