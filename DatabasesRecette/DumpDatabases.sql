@@ -174,8 +174,13 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'test@gmail.com','sha256$xTFdZqUrSblayJR7$e5e2931ad389afa705c3eb34438a38896f1deff623f8b6e55bb1ba4f85258499','test'),(2,'zoubida@gmail.com','1234567','test'),(3,'afoutniz@gmail.com','sha256$oT7D8Z6pgmYTuTxq$bdf6f17e691ec0725a98f2edcb5809aca001cdd823e23afd58de2c277b766088','test');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
+-- LOCK TABLES `user` WRITE;
+-- /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+-- /*!40000 ALTER TABLE `user` ENABLE KEYS */;
+-- UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

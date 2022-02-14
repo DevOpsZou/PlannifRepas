@@ -26,16 +26,27 @@ class Db():
     def url(self):
         return self._url
  
+    # @url.setter
+    # def url(self, value):
+    #     self._url = "%s://%s:%s@%s:%s/%s" % (
+    #     os.getenv("DRIVER"),
+    #     os.getenv("USER"),
+    #     os.getenv("PASSWORD"),
+    #     os.getenv("HOST"),
+    #     os.getenv("PORT"),
+    #     os.getenv('DATABASE')
+    # )
     @url.setter
     def url(self, value):
         self._url = "%s://%s:%s@%s:%s/%s" % (
         os.getenv("DRIVER"),
-        os.getenv("USER"),
-        os.getenv("PASSWORD"),
-        os.getenv("HOST"),
-        os.getenv("PORT"),
-        os.getenv('DATABASE')
+        os.getenv("MYSQL_DATABASE_USER"),
+        os.getenv("MYSQL_ROOT_PASSWORD"),
+        os.getenv("MYSQL_SERVICE_HOST"),
+        int(os.getenv("MYSQL_DATABASE_PORT")),
+        os.getenv('DB_NAME')
     )
+   
    
 
     def logging(self):

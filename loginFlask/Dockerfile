@@ -1,13 +1,13 @@
 FROM python:3.9.10
 
-WORKDIR /app
 
-COPY loginFlask/requirements.txt  /app/requirements.txt
+
+COPY requirements.txt  requirements.txt
 
 
 RUN pip install -r requirements.txt
 
-COPY . /app
+COPY . /
 
 ENTRYPOINT [ "python" ]
 

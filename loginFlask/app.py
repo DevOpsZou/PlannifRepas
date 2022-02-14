@@ -11,10 +11,13 @@ import os
 from dotenv import load_dotenv
 
 DEBUG_MODE=os.environ.get("DEBUG_MODE", "True")
-SERVER_PORT=os.environ.get("SERVER_PORT", "80")
+SERVER_PORT=os.environ.get("SERVER_PORT", "5000")
 SERVER_HOST=os.environ.get("SERVER_HOST", "0.0.0.0")
 CONSUL_HOST=os.environ.get("CONSUL_HOST", "localhost")
 CONSUL_PORT=os.environ.get("CONSUL_PORT", "9500")
+RANDOM_HOST=os.environ.get("RANDOM_HOST", "random-service")
+PORT_HOST=int(os.environ.get("PORT_HOST", "5001"))
+
 
 def create_app():
     controlleur=Controlleur()
@@ -27,9 +30,12 @@ def create_app():
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
 
-  
+    # @app.route("/admin", methods=['GET', 'POST'])
+    # def login():
+    #     return render_template("index.html")
     @app.route ("/admin", methods=['GET', 'POST'])
     def login():
+        print("La methode ", request.method)
         if request.method == 'POST':
             email = request.form.get('email')
             password = request.form.get('pwd')
@@ -46,7 +52,7 @@ def create_app():
     @app.route('/admin/plat')
     def displayPlat():
         listItem=[]
-        response = requests.get(f"http://randommeal:80/planifrepas/plat")
+        response = requests.get(f"http://{RANDOM_HOST}:{PORT_HOST}/planifrepas/plat")
         for i in response.json():
             listItem.append(i)
         return render_template("plat.html",data =listItem, len = len(listItem))
@@ -54,7 +60,7 @@ def create_app():
     @app.route('/admin/entree')
     def displayEntree():
         listItem=[]
-        response = requests.get(f"http://randommeal:80/planifrepas/entree")
+        response = requests.get(f"http://{RANDOM_HOST}:{PORT_HOST}/planifrepas/entree")
         for i in response.json():
             listItem.append(i)
         return render_template("plat.html",data =listItem, len = len(listItem))
@@ -62,7 +68,7 @@ def create_app():
     @app.route('/admin/displayRecipe/<int:id>')
     def displayRecipe(id):
         listItem=[]
-        response = requests.get(f"http://randommeal:80/planifrepas/displayRecipe/{id}")
+        response = requests.get(f"http://{RANDOM_HOST}:{PORT_HOST}/planifrepas/displayRecipe/{id}")
         for i in response.json():
             listItem.append(i)
         return render_template("displayRecipe.html",data =response.json())
