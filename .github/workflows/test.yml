@@ -30,16 +30,16 @@ jobs:
     #       cd randomPlanMeal_SQLAlchemy
     #       docker build -t zafoutni/plannifrepas:latest .
   
-    # - name: Build and Push Docker Image1
-    #   uses: mr-smithers-excellent/docker-build-push@v4
+    - name: Build and Push Docker Image1
+      uses: mr-smithers-excellent/docker-build-push@v4
 
-    #   with:
-    #     image: zafoutni/plannifrepas
-    #     registry: docker.io
+      with:
+        image: zafoutni/plannifrepas
+        registry: docker.io
        
-    #     dockerfile: randomPlanMeal_SQLAlchemy/Dockerfile
-    #     username: ${{ secrets.DOCKER_USERNAME }}
-    #     password: ${{ secrets.DOCKER_PASSWORD }}
+        dockerfile: randomPlanMeal_SQLAlchemy/Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
     # feat-7011bc7
 
     # - name: Build and Push Docker Image2
@@ -54,17 +54,17 @@ jobs:
     #     password: ${{ secrets.DOCKER_PASSWORD }}
     #feat-ea569ef ///////////////////
 
-    - name: Build and Push Docker Image3
-      uses: mr-smithers-excellent/docker-build-push@v4
+    # - name: Build and Push Docker Image3
+    #   uses: mr-smithers-excellent/docker-build-push@v4
 
-      with:
-        image: zafoutni/plannifrepas
-        registry: docker.io
+    #   with:
+    #     image: zafoutni/plannifrepas
+    #     registry: docker.io
        
-        dockerfile: databasesrecette/Dockerfile
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-    #feat-27dc93c
+    #     dockerfile: databasesrecette/Dockerfile
+    #     username: ${{ secrets.DOCKER_USERNAME }}
+    #     password: ${{ secrets.DOCKER_PASSWORD }}
+    # #feat-27dc93c
         
                 
          
