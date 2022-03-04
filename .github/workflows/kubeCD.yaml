@@ -46,5 +46,5 @@ jobs:
           kubernetes/secret.yaml
           kubernetes/service_login.yaml
           kubernetes/service_random.yaml
-          kubernetes/service.yml
+        
         # images: ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ github.event.repository.name }}:${{ github.ref_name }}
