@@ -35,7 +35,7 @@ jobs:
         kubectl apply -f   kubernetes/deployement_db.yaml --namespace ingress-nginx
         kubectl apply -f   kubernetes/deployement_login.yaml --namespace ingress-nginx
         kubectl apply -f   kubernetes/deployement_random.yaml --namespace ingress-nginx
-        kubectl apply -f   kubernetes/secret --namespace ingress-nginx
+        kubectl apply -f   kubernetes/secret.yaml --namespace ingress-nginx
         kubectl apply -f   kubernetes/service_login.yaml --namespace ingress-nginx
         kubectl apply -f   kubernetes/service_random.yaml --namespace ingress-nginx
         kubectl apply -f   kubernetes/ingress.yaml --namespace ingress-nginx
