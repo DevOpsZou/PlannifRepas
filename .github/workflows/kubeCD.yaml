@@ -8,7 +8,6 @@ jobs:
   build-and-pull:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "Hello world!!!"
     - uses: actions/checkout@main
     - uses: azure/login@v1
       with:
@@ -33,12 +32,7 @@ jobs:
       with:
         manifests: |
           kubernetes/controller_ingress.yaml
-          # kubernetes/deployement_db.yaml
-          # kubernetes/deployement_login.yaml
-          # kubernetes/deployement_random.yaml
-          # kubernetes/ingress.yaml
-          # kubernetes/secret.yaml
-          # kubernetes/service_login.yaml
-          # kubernetes/service_random.yaml
+          kubernetes/deployement_db.yaml
+      
         
       
