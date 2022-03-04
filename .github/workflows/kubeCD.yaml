@@ -2,8 +2,7 @@ name: kubernetes deploiement
 
 on:
   push:
-    tags:
-    - 'v*.*.*'
+    branches: [ feat/microServicesApp ]
 
 jobs:
   build-and-pull:
