@@ -32,6 +32,7 @@ jobs:
     - uses: azure/k8s-deploy@v1
       with:
         manifests: |
+          kubernetes/controller_ingress.yaml
           kubernetes/deployement_db.yaml
           kubernetes/deployement_login.yaml
           kubernetes/deployement_random.yaml
