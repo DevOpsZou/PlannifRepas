@@ -3,7 +3,7 @@ name: kubernete deploiement
 on:
   push:
     branches: [ feat/microServicesApp ]
-##ff
+
 jobs:
   build-and-pull:
     runs-on: ubuntu-latest
@@ -13,13 +13,6 @@ jobs:
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }} 
-    # - uses: azure/docker-login@v1
-    #   with:
-    #     login-server: docker.io
-    #     username: ${{ secrets.DOCKER_USERNAME }}
-    #     password: ${{ secrets.DOCKER_PASSWORD }}
-    # - run: docker build randomPlanMeal_SQLAlchemy/Dockerfile -t zafoutni/plannifrepas:feat-test
-    # - run: docker push zafoutni/plannifrepas:feat-test
   deploy:
     runs-on: ubuntu-latest
     needs: build-and-pull
