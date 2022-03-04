@@ -3,7 +3,7 @@ name: kubernete deploiement
 on:
   push:
     branches: [ feat/microServicesApp ]
-##kkk
+
 jobs:
   build-and-pull:
     runs-on: ubuntu-latest
@@ -12,17 +12,7 @@ jobs:
     - uses: actions/checkout@main
     - uses: azure/login@v1
       with:
-        creds: { "clientId": "de09d019-064f-46dd-85bb-a079ad33f3d6",
-                 "clientSecret": "Qr9Gb45J4NG03oYo-phlyRI61Moje_lLwJ",
-                  "subscriptionId": "a58e3843-b5d3-430d-b9c4-2e6d9955218c",
-                  "tenantId": "373016f8-79a9-4eed-80d2-100ce948d960",
-                  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-                  "resourceManagerEndpointUrl": "https://management.azure.com/",
-                  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-                  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-                  "galleryEndpointUrl": "https://gallery.azure.com/",
-                  "managementEndpointUrl": "https://management.core.windows.net/"
-                }
+        creds: ${{ secrets.AZURE_CREDENTIALS }} 
     # - uses: azure/docker-login@v1
     #   with:
     #     login-server: docker.io
@@ -52,3 +42,4 @@ jobs:
   #         ${{ github.workspace }}/manifests/deployment.yml
   #         ${{ github.workspace }}/manifests/service.yml
   #       images: ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ github.event.repository.name }}:${{ github.ref_name }}
+  ##ee
