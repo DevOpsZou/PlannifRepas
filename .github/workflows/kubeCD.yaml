@@ -25,19 +25,18 @@ jobs:
     - name: "Configuration et connection a AKS"
       uses: azure/aks-set-context@v1
       with:
+      
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         cluster-name: product-aks1
         resource-group: product-resources
     - run : |
   
         kubectl apply -f   kubernetes/controller_ingress.yaml --namespace ingress-nginx
-    # - uses: azure/k8s-deploy@v1
-     
-
+        kubectl apply -f   kubernetes/deployement_db.yaml --namespace ingress-nginx
+    
     # - uses: azure/k8s-deploy@v1
     #   with:
     #     manifests: |
-    #       kubernetes/controller_ingress.yaml
     #       kubernetes/deployement_db.yaml
       
         
