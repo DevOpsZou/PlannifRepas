@@ -6,7 +6,7 @@ metadata:
 
 spec:
   rules:
-    - host: mydemo.info
+    # - host: mydemo.info
       http:
         paths:
           - path: /admin
