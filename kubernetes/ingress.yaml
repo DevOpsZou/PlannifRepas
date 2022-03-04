@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: flask-ingress
+  # annotations:
+  #   traefik.ingress.kubernetes.io/router.middlewares:  default-test-stripprefix@kubernetescrd
+spec:
+  rules:
+    - host: mydemo.info
+      http:
+        paths:
+          - path: /admin
+            pathType: Prefix
+            backend:
+              service:
+                name: flask-service 
+                port:
+                  number: 5000
+          - path: /  
+            pathType: Prefix
+            backend:
+              service:
+                name: flask-service
+                port:
+                  number: 5000
+

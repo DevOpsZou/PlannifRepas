@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: random-deployment
+spec:
+  selector:
+    matchLabels:
+      app: random
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: random
+    spec:
+      containers:
+      - name: random
+        image: zafoutni/plannifrepas:feat-700
+        ports:
+          - containerPort: 5000
+        env: 
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysql-secret
+                key: password
+          - name: DB_NAME
+            value: recettebis
+          - name: MYSQL_DATABASE_USER
+            value: root
+          - name: MYSQL_SERVICE_HOST
+            value: recette
+          - name: MYSQL_DATABASE_PORT
+            value: "3306"
+          - name: DRIVER
+            value: "mysql+pymysql"
+         
+

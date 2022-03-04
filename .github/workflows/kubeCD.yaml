@@ -36,9 +36,9 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         cluster-name: product-aks1
         resource-group: product-resources
-    # - uses: azure/k8s-deploy@v1
-    #   with:
-    #     manifests: |
-    #       ${{ github.workspace }}/manifests/deployment.yml
-    #       ${{ github.workspace }}/manifests/service.yml
-    #     images: ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ github.event.repository.name }}:${{ github.ref_name }}
+    - uses: azure/k8s-deploy@v1
+      with:
+        manifests: |
+          ${{ github.workspace }}/manifests/deployment.yml
+          ${{ github.workspace }}/manifests/service.yml
+        images: ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ github.event.repository.name }}:${{ github.ref_name }}
