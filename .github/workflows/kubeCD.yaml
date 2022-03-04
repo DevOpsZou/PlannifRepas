@@ -29,7 +29,7 @@ jobs:
         cluster-name: product-aks1
         resource-group: product-resources
     - run : |
-        kubectl create namespace ingress-nginx
+  
         kubectl apply -f   kubernetes/controller_ingress.yaml --namespace ingress-nginx
     # - uses: azure/k8s-deploy@v1
      
