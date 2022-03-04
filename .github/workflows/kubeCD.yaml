@@ -25,7 +25,7 @@ jobs:
     - name: "Configuration et connection a AKS"
       uses: azure/aks-set-context@v1
       with:
-      
+
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         cluster-name: product-aks1
         resource-group: product-resources
@@ -33,6 +33,12 @@ jobs:
   
         kubectl apply -f   kubernetes/controller_ingress.yaml --namespace ingress-nginx
         kubectl apply -f   kubernetes/deployement_db.yaml --namespace ingress-nginx
+        kubectl apply -f   kubernetes/deployement_login.yaml --namespace ingress-nginx
+        kubectl apply -f   kubernetes/deployement_random.yaml --namespace ingress-nginx
+        kubectl apply -f   kubernetes/secret --namespace ingress-nginx
+        kubectl apply -f   kubernetes/service_login.yaml --namespace ingress-nginx
+        kubectl apply -f   kubernetes/service_random.yaml --namespace ingress-nginx
+        kubectl apply -f   kubernetes/ingress.yaml --namespace ingress-nginx
     
     # - uses: azure/k8s-deploy@v1
     #   with:
