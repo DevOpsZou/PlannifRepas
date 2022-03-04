@@ -22,5 +22,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           # dockerfile: randomPlanMeal_SQLAlchemy/Dockerfile
+          context: randomPlanMeal_SQLAlchemy/Dockerfile
           push: true
           tags: user/app:latest
