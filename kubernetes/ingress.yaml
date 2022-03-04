@@ -2,8 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: flask-ingress
-  # annotations:
-  #   traefik.ingress.kubernetes.io/router.middlewares:  default-test-stripprefix@kubernetescrd
+  namespace: ingress-nginx
+
 spec:
   rules:
     - host: mydemo.info
