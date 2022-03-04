@@ -39,12 +39,12 @@ jobs:
     - uses: azure/k8s-deploy@v1
       with:
         manifests: |
-          ${{ github.workspace }}/kubernetes/deployement_db.yaml
-          ${{ github.workspace }}/kubernetes/deployement_login.yaml
-          ${{ github.workspace }}/kubernetes/deployement_random.yaml
-          ${{ github.workspace }}/kubernetes/ingress.yaml
-          ${{ github.workspace }}/kubernetes/secret.yaml
-          ${{ github.workspace }}/kubernetes/service_login.yaml
-          ${{ github.workspace }}/kubernetes/service_random.yaml
-          # ${{ github.workspace }}/kubernetes/service.yml
+          ./kubernetes/deployement_db.yaml
+          ./kubernetes/deployement_login.yaml
+          ./kubernetes/deployement_random.yaml
+          ./kubernetes/ingress.yaml
+          ./kubernetes/secret.yaml
+          ./kubernetes/service_login.yaml
+          ./kubernetes/service_random.yaml
+          ./kubernetes/service.yml
         # images: ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ github.event.repository.name }}:${{ github.ref_name }}
