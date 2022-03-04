@@ -1,4 +1,4 @@
-name: kubernetes deploiement
+name: kubernete deploiement
 
 on:
   push:
