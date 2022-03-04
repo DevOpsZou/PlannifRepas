@@ -40,11 +40,11 @@ jobs:
       with:
         manifests: |
           kubernetes/deployement_db.yaml
-          ./kubernetes/deployement_login.yaml
-          ./kubernetes/deployement_random.yaml
-          ./kubernetes/ingress.yaml
-          ./kubernetes/secret.yaml
-          ./kubernetes/service_login.yaml
-          ./kubernetes/service_random.yaml
-          ./kubernetes/service.yml
+          kubernetes/deployement_login.yaml
+          kubernetes/deployement_random.yaml
+          kubernetes/ingress.yaml
+          kubernetes/secret.yaml
+          kubernetes/service_login.yaml
+          kubernetes/service_random.yaml
+          kubernetes/service.yml
         # images: ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ github.event.repository.name }}:${{ github.ref_name }}
