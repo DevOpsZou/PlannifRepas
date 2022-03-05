@@ -31,14 +31,14 @@ jobs:
         resource-group: product-resources
     - run : |
          
-          kubectl apply -f   kubernetes/controller_ingress.yaml --namespace ingress-nginx
-          kubectl apply -f   kubernetes/deployement_db.yaml --namespace ingress-nginx
-          kubectl apply -f   kubernetes/deployement_login.yaml --namespace ingress-nginx
-          kubectl apply -f   kubernetes/deployement_random.yaml --namespace ingress-nginx
-          kubectl apply -f   kubernetes/secret.yaml --namespace ingress-nginx
-          kubectl apply -f   kubernetes/service_login.yaml --namespace ingress-nginx
-          kubectl apply -f   kubernetes/service_random.yaml --namespace ingress-nginx
-          kubectl apply -f   kubernetes/ingress.yaml --namespace ingress-nginx
+          # kubectl apply -f   kubernetes/controller_ingress.yaml --namespace ingress-nginx
+          # kubectl apply -f   kubernetes/deployement_db.yaml --namespace ingress-nginx
+          # kubectl apply -f   kubernetes/deployement_login.yaml --namespace ingress-nginx
+          # kubectl apply -f   kubernetes/deployement_random.yaml --namespace ingress-nginx
+          # kubectl apply -f   kubernetes/secret.yaml --namespace ingress-nginx
+          # kubectl apply -f   kubernetes/service_login.yaml --namespace ingress-nginx
+          # kubectl apply -f   kubernetes/service_random.yaml --namespace ingress-nginx
+          # kubectl apply -f   kubernetes/ingress.yaml --namespace ingress-nginx
     
     # - uses: azure/k8s-deploy@v1
     #   with:
