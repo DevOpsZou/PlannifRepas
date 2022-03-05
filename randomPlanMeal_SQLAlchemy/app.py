@@ -7,7 +7,7 @@ import os
 from dotenv import load_dotenv
 
 DEBUG_MODE=os.environ.get("DEBUG_MODE", "False")
-SERVER_PORT=os.environ.get("SERVER_PORT", "5000")
+SERVER_PORT=os.environ.get("SERVER_PORT", "80")
 SERVER_HOST=os.environ.get("SERVER_HOST", "0.0.0.0")
 CONSUL_HOST=os.environ.get("CONSUL_HOST", "localhost")
 CONSUL_PORT=os.environ.get("CONSUL_PORT", "9500")

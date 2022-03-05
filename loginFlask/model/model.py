@@ -9,5 +9,11 @@ class Model():
         self._db=db
     
     def getUserByEmail(self, email):
-        self.user=self._db.session.query(self._db.User).filter(self._db.User.email==email).first()
-        return self.user
+        try:
+            self.user=self._db.session.query(self._db.User).filter(self._db.User.email==email).first()
+            return self.user
+        except:
+            print("probleme")
+            
+        
+      
