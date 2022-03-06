@@ -11,7 +11,7 @@ class Controlleur():
         user = model.getUserByEmail(email)
         if user:
             if check_password_hash(user.password, password):
-                flash('Logged in successfully!', category='success')
+                #flash('Logged in successfully!', category='success')
                 return render_template("accueil.html")
             else:
                 return flash('Incorrect password, try again.', category='error')

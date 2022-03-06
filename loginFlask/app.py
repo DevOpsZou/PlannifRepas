@@ -11,7 +11,7 @@ import os
 from dotenv import load_dotenv
 
 DEBUG_MODE=os.environ.get("DEBUG_MODE", "True")
-SERVER_PORT=os.environ.get("SERVER_PORT", "80")
+SERVER_PORT=os.environ.get("SERVER_PORT", "5000")
 SERVER_HOST=os.environ.get("SERVER_HOST", "0.0.0.0")
 CONSUL_HOST=os.environ.get("CONSUL_HOST", "localhost")
 CONSUL_PORT=os.environ.get("CONSUL_PORT", "9500")
@@ -58,7 +58,7 @@ def create_app():
     @app.route('/admin/entree')
     def displayEntree():
         listItem=[]
-        response = requests.get(f"http://randommeal:80/planifrepas/entree")
+        response = requests.get(f"http://{RANDOM_HOST}:{PORT_HOST}/planifrepas/entree")
         for i in response.json():
             listItem.append(i)
         return render_template("plat.html",data =listItem, len = len(listItem))
@@ -73,7 +73,7 @@ def create_app():
     #Routes random meal####################################################################################
     @app.route('/admin/accueil')
     def accueil():
-        print("jjjj")
+        
         return render_template("accueil.html")
     @app.route('/admin/sign-up',  methods=['GET', 'POST'])
     def sign_up():
