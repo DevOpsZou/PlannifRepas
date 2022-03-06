@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: flask
-        image: zafoutni/plannifrepas:feat-1.0.8
+        image: zafoutni/login:1.0.0
         ports:
           - containerPort: 5000
         env: 
@@ -38,4 +38,8 @@ spec:
             value: random-service
           - name: RANDOM_PORT
             value: "5001"
+          - name: RANDOM_HOST
+            value: "random-service"
+          - name: PORT_HOST
+            value: "80"
 

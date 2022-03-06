@@ -61,7 +61,7 @@ spec:
         app: recette
     spec:
       containers:
-      - image: zafoutni/plannifrepas:feat-300
+      - image: zafoutni/dbrecettes:1.0.0
         name: recette
         env:
           - name: MYSQL_ROOT_PASSWORD
