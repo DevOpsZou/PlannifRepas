@@ -41,5 +41,7 @@ spec:
           - name: RANDOM_HOST
             value: "random-service"
           - name: PORT_HOST
-            value: "80"
+            value: "5001"
+          - name: SERVER_PORT
+            value: "5000"
 

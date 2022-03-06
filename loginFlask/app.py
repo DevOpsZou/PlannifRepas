@@ -11,13 +11,12 @@ import os
 from dotenv import load_dotenv
 
 DEBUG_MODE=os.environ.get("DEBUG_MODE", "True")
-SERVER_PORT=os.environ.get("SERVER_PORT", "5000")
+SERVER_PORT=os.environ.get("SERVER_PORT", "80")
 SERVER_HOST=os.environ.get("SERVER_HOST", "0.0.0.0")
 CONSUL_HOST=os.environ.get("CONSUL_HOST", "localhost")
 CONSUL_PORT=os.environ.get("CONSUL_PORT", "9500")
 RANDOM_HOST=os.environ.get("RANDOM_HOST", "randommeal")
 PORT_HOST=int(os.environ.get("PORT_HOST", "80"))
-
 
 def create_app():
     controlleur=Controlleur()
@@ -39,6 +38,8 @@ def create_app():
             password = request.form.get('pwd')
             return controlleur.login(model, email, password)
         return render_template("index.html", user=current_user)
+    
+       
        
     @app.route('/admin/logout')
     @login_required
