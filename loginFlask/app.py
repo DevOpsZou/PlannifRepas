@@ -9,6 +9,7 @@ from model.model import Model
 from controlleur.controlleur import Controlleur
 import os
 from dotenv import load_dotenv
+import random
 
 DEBUG_MODE=os.environ.get("DEBUG_MODE", "True")
 SERVER_PORT=os.environ.get("SERVER_PORT", "80")
@@ -30,7 +31,7 @@ def create_app():
     login_manager.init_app(app)
 
 
-    @app.route ("/admin", methods=['GET', 'POST'])
+    @app.route ("/", methods=['GET', 'POST'])
     def login():
         print("La methode ", request.method)
         if request.method == 'POST':
@@ -41,18 +42,18 @@ def create_app():
     
        
        
-    @app.route('/admin/logout')
+    @app.route('/logout')
     @login_required
     def logout():
         logout_user()
         return redirect(url_for('auth.login'))
     
-    @app.route('/admin/construction')
+    @app.route('/construction')
     def construction():
         return render_template("construction.html")
     
     #Routes random meal#########################################################################""   
-    @app.route('/admin/plat')
+    @app.route('/plat')
     def displayPlat():
         listItem=[]
         response = requests.get(f"http://{RANDOM_HOST}:{PORT_HOST}/planifrepas/plat")
@@ -60,7 +61,7 @@ def create_app():
             listItem.append(i)
         return render_template("plat.html",data =listItem, len = len(listItem))
     
-    @app.route('/admin/entree')
+    @app.route('/entree')
     def displayEntree():
         listItem=[]
         response = requests.get(f"http://{RANDOM_HOST}:{PORT_HOST}/planifrepas/entree")
@@ -68,7 +69,7 @@ def create_app():
             listItem.append(i)
         return render_template("plat.html",data =listItem, len = len(listItem))
     
-    @app.route('/admin/displayRecipe/<int:id>')
+    @app.route('/displayRecipe/<int:id>')
     def displayRecipe(id):
         listItem=[]
         response = requests.get(f"http://{RANDOM_HOST}:{PORT_HOST}/planifrepas/displayRecipe/{id}")
@@ -76,12 +77,12 @@ def create_app():
             listItem.append(i)
         return render_template("displayRecipe.html",data =response.json())
     #Routes random meal####################################################################################
-    @app.route('/admin/accueil')
+    @app.route('/accueil')
     def accueil():
         return render_template("accueil.html")
     
     
-    @app.route('/admin/sign-up',  methods=['GET', 'POST'])
+    @app.route('/sign-up',  methods=['GET', 'POST'])
     def sign_up():
         if request.method == 'POST':
             email = request.form.get('email')
@@ -102,12 +103,13 @@ def create_app():
                 flash('Password must be at least 7 characters.', category='error')
             else:
                 stmt = (
-                    insert(db.User).
-                    
-                    values(email=email, first_name=first_name, password=generate_password_hash(
+                    insert(db.User).                    
+                    values(id=random.randint(5, 100), email=email, first_name=first_name, password=generate_password_hash(
                      password1, method='sha256') )
                     )
                 db.engine.execute(stmt)
+                db.session.commit()
+         
                 flash('Account created!', category='success')
                 return redirect(url_for('login'))
 

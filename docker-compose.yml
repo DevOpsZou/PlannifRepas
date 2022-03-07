@@ -42,7 +42,7 @@ services:
     labels:
     - traefik.enable=true
     - traefik.http.routers.admin.rule=Host(`admin`)
-    - traefik.http.routers.admin.rule=PathPrefix(`/admin`)
+    - traefik.http.routers.admin.rule=PathPrefix(`/`)
     - traefik.http.routers.admin.entrypoints=web
     depends_on:
     - mysqldb
