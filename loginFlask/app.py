@@ -47,6 +47,10 @@ def create_app():
         logout_user()
         return redirect(url_for('auth.login'))
     
+    @app.route('/admin/construction')
+    def construction():
+        return render_template("construction.html")
+    
     #Routes random meal#########################################################################""   
     @app.route('/admin/plat')
     def displayPlat():
@@ -74,8 +78,9 @@ def create_app():
     #Routes random meal####################################################################################
     @app.route('/admin/accueil')
     def accueil():
-        
         return render_template("accueil.html")
+    
+    
     @app.route('/admin/sign-up',  methods=['GET', 'POST'])
     def sign_up():
         if request.method == 'POST':
