@@ -8,7 +8,7 @@ spec:
   - port: 3306
   selector:
     app: recette
-
+---
 # ---
 # apiVersion: v1
 # kind: PersistentVolume
@@ -43,7 +43,17 @@ spec:
 #   resources:
 #     requests:
 #       storage: 20Gi
-
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: azure-managed-disk
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: managed-premium
+  resources:
+    requests:
+      storage: 5Gi
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -73,11 +83,11 @@ spec:
         ports:
         - containerPort: 3306
           name: recette
-      #   volumeMounts:
-      #   - name: mysql-persistent-storage
-      #     mountPath: /var/lib/mysql
-      # volumes:
-      # - name: mysql-persistent-storage
-      #   persistentVolumeClaim:
-      #     claimName: mysql-pv-claim
+        volumeMounts:
+          - mountPath: "/mnt/azure"
+            name: volume
+      volumes:
+      - name: volume
+        persistentVolumeClaim:
+          claimName: azure-managed-disk
 

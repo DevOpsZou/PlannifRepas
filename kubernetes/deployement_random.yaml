@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: random
-        image: zafoutni/randomplan:1.0.0 
+        image: zafoutni/randomplan:1.0.2
         ports:
           - containerPort: 5000
         env: 
