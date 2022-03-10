@@ -1,23 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: flask-ingress
+  name: ingress
   namespace: ingress-nginx
   annotations:
-    kubernetes.io/ingress.class: nginx
-    
+  #   kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
+  ingressClassName: nginx
   rules:
     - host: www.vitfee.fr
       http:
         paths:
-          - path: /admin
-            pathType: Prefix
-            backend:
-              service:
-                name: flask-service 
-                port:
-                  number: 5000
           - path: /  
             pathType: Prefix
             backend:
@@ -25,4 +19,11 @@ spec:
                 name: flask-service
                 port:
                   number: 5000
+  
+                  
+  tls:
+  - hosts:
+    - www.vitfee.fr
+    secretName: resto2-novation-menu-com-tls
+
 
