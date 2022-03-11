@@ -2,13 +2,10 @@
 import os
 from dotenv import load_dotenv
 
-from sqlalchemy.orm import sessionmaker, Session, load_only
+from sqlalchemy.orm import sessionmaker, Session, load_only, undefer, defer
 import pymysql
 from sqlalchemy.ext.automap import automap_base
-
 from sqlalchemy import create_engine, MetaData, Table, Column
-from sqlalchemy.orm import defer
-from sqlalchemy.orm import undefer
 from  sqlalchemy.sql.expression import func
 
 '''

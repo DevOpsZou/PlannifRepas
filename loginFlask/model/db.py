@@ -1,4 +1,3 @@
-
 import os
 from dotenv import load_dotenv
 from flask_login import UserMixin
@@ -6,7 +5,8 @@ import pymysql
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy import create_engine, MetaData, Table, Column
 from sqlalchemy.sql.expression import func
-from sqlalchemy.orm import sessionmaker, Session, load_only
+from sqlalchemy.orm import Session, load_only, sessionmaker, undefer, defer
+
 '''
 Authors : Zoubida AFOUTNI
 Date : 13/01/2022
@@ -46,7 +46,6 @@ class Db():
         self.Base = automap_base(metadata=self.metadata)
         self.metadata.reflect(self.engine)
         self.Base.prepare()
-
         self.User = self.Base.classes.user
      
     
