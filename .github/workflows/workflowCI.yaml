@@ -24,3 +24,14 @@ jobs:
         cd randomPlanMeal_SQLAlchemy
         coverage run -m unittest 
         coverage report -m 
+  sonarcloud:
+    needs: Python-test-unitaire
+    runs-on: ubuntu-latest
+    steps:     
+    - name: SonarCloud Scan
+      uses: sonarsource/sonarcloud-github-action@master
+      with:
+        projectBaseDir: randomPlanMeal_SQLAlchemy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN}}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
