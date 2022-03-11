@@ -28,6 +28,7 @@ deactivate () {
     fi
 
     unset VIRTUAL_ENV
+    unset VIRTUAL_ENV_PROMPT
     if [ ! "${1:-}" = "nondestructive" ] ; then
     # Self destruct!
         unset -f deactivate
@@ -37,11 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-<<<<<<<< HEAD:randomPlanMeal_SQLAlchemy/venv/Scripts/activate
-VIRTUAL_ENV="C:\Users\Administrateur\Documents\FlaskSQLALchemy\venv"
-========
-VIRTUAL_ENV="C:\Users\Administrateur\Documents\DevOpsFormation\PlannifRepas\randomPlanMeal_MySqlConnector\venv"
->>>>>>>> 0ccab6580c97f5456da25847d0b0bdfab29e9adf:randomPlanMeal_MySqlConnector/venv/Scripts/activate
+VIRTUAL_ENV="C:\Users\Administrateur\Documents\DevOpsFormation\DevOpsFormation\PlannifRepas\randomPlanMeal_SQLAlchemy\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
@@ -60,6 +57,8 @@ if [ -z "${VIRTUAL_ENV_DISABLE_PROMPT:-}" ] ; then
     _OLD_VIRTUAL_PS1="${PS1:-}"
     PS1="(venv) ${PS1:-}"
     export PS1
+    VIRTUAL_ENV_PROMPT="(venv) "
+    export VIRTUAL_ENV_PROMPT
 fi
 
 # This should detect bash and zsh, which have a hash command that must

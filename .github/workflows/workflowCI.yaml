@@ -25,14 +25,14 @@ jobs:
         coverage run -m unittest 
         coverage report -m 
         coverage xml -o coverage.xml
-  # sonarcloud:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   steps:     
-  #   - name: SonarCloud Scan
-  #     uses: sonarsource/sonarcloud-github-action@master
-  #     with:
-  #       projectBaseDir: ./randomPlanMeal_SQLAlchemy
-  #     env:
-  #       GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN}}
-  #       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  sonarcloud:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:     
+    - name: SonarCloud Scan
+      uses: sonarsource/sonarcloud-github-action@master
+      with:
+        projectBaseDir: ./randomPlanMeal_SQLAlchemy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN}}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

@@ -8,11 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-<<<<<<<< HEAD:randomPlanMeal_SQLAlchemy/venv/Scripts/activate.bat
-set VIRTUAL_ENV=C:\Users\Administrateur\Documents\FlaskSQLALchemy\venv
-========
-set VIRTUAL_ENV=C:\Users\Administrateur\Documents\DevOpsFormation\PlannifRepas\randomPlanMeal_MySqlConnector\venv
->>>>>>>> 0ccab6580c97f5456da25847d0b0bdfab29e9adf:randomPlanMeal_MySqlConnector/venv/Scripts/activate.bat
+set VIRTUAL_ENV=C:\Users\Administrateur\Documents\DevOpsFormation\DevOpsFormation\PlannifRepas\randomPlanMeal_SQLAlchemy\venv
 
 if not defined PROMPT set PROMPT=$P$G
 
@@ -29,6 +25,7 @@ if defined _OLD_VIRTUAL_PATH set PATH=%_OLD_VIRTUAL_PATH%
 if not defined _OLD_VIRTUAL_PATH set _OLD_VIRTUAL_PATH=%PATH%
 
 set PATH=%VIRTUAL_ENV%\Scripts;%PATH%
+set VIRTUAL_ENV_PROMPT=(venv) 
 
 :END
 if defined _OLD_CODEPAGE (
