@@ -6,9 +6,10 @@ on:
   #     types: [opened, synchronize, reopened]
 
 jobs:
-  sonarcloud:
-    needs: Python-test-unitaire
+  sonarInitialisation:
     runs-on: ubuntu-latest
+   
+  sonarcloud:
     steps:
     - uses: actions/checkout@v2
       with:
@@ -22,3 +23,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN}}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         ##
+  
