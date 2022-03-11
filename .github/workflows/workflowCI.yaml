@@ -25,7 +25,7 @@ jobs:
         coverage run -m unittest 
         coverage report -m 
   sonarcloud:
-    needs: Python-test-unitaire
+    needs: build
     runs-on: ubuntu-latest
     steps:     
     - name: SonarCloud Scan
