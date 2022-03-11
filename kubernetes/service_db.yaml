@@ -1,0 +1,13 @@
+# This manifest allow to create a service resource to acces the recipe database
+# port : 3306
+# name: recette
+apiVersion: v1
+kind: Service
+metadata:
+  name: recette
+  namespace: ingress-nginx
+spec:
+  ports:
+  - port: 3306
+  selector:
+    app: recette

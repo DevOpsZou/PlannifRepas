@@ -1,6 +1,3 @@
-randomPlanMeal_MySqlConnector/.env
-randomPlanMeal_MySqlConnector/venv
-randomPlanMeal_SQLAlchemy/.env
-randomPlanMeal_SQLAlchemy/venv
-randomPlanMeal_SQLAlchemy/test
-randomPlanMeal_SQLAlchemy/tedb.py
+./randomPlanMeal_SQLAlchemy/.env
+./randomPlanMeal_SQLAlchemy/venv
+./randomPlanMeal_SQLAlchemy/test
