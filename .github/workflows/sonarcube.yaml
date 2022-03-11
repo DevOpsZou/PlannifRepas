@@ -15,7 +15,10 @@ jobs:
         fetch-depth: 0
    
   sonarcloud:
+    needs: Python-test-unitaire
+    runs-on: ubuntu-latest
     steps:
+     
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       with:
