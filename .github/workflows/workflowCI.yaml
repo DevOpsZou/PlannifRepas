@@ -1,4 +1,4 @@
-name: Python application
+name: Python-test-unitaire
 on:
   push:
     branches: [ feat/microServicesAppTraefik ]
@@ -23,4 +23,4 @@ jobs:
       run: |
         cd randomPlanMeal_SQLAlchemy
         coverage run -m unittest 
-        coverage report -m
+        coverage report -m coverage.xml
