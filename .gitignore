@@ -1,3 +1,5 @@
 randomPlanMeal_SQLAlchemy/.env
 randomPlanMeal_SQLAlchemy/venv
-randomPlanMeal_SQLAlchemy/test
+loginFlask/venv
+loginFlask/.env
+secretClient.yaml

@@ -1,13 +1,12 @@
 
-from sqlalchemy.orm import sessionmaker, Session, load_only
 import pymysql
+from sqlalchemy.orm import sessionmaker, Session, load_only
 from sqlalchemy.ext.automap import automap_base
 from model.db import Db
-from sqlalchemy import create_engine, MetaData, Table, Column
-from sqlalchemy.orm import defer
-from sqlalchemy.orm import undefer
+from sqlalchemy import create_engine, MetaData, Table, Column, distinct
+from sqlalchemy.orm import defer, undefer
 from sqlalchemy.sql.expression import func
-from sqlalchemy import distinct
+
 
 class Recipe():
     def __init__(self,db):

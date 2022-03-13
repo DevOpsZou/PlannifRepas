@@ -1,15 +1,9 @@
-dversion: '3.9'
+version: '3.9'
 services:
   randomanmeal:
-    networks:
-      - antoine
     build: .
     env_file:
       - .env
     ports:
       - 5000:5000
-    # command: --default-authentication-plugin=mysql_native_password
     
-networks:
-  antoine:
-    external: true

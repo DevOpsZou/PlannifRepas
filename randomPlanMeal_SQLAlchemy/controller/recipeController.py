@@ -9,12 +9,12 @@ class RecipeController():
     
     def readEntree(self, recipe):
         result = recipe.readEntree()
-        # return render_template("entree.html", data= result, len=len(result))
+       
         return jsonify(result)
     def readRecipe(self, recipe, id):
         result = recipe.readRecipe(id)
         return jsonify(result)
-        # return render_template("displayRecipe.html", data= result, len=len(result))
+     
  
 
 

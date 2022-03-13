@@ -30,7 +30,9 @@ def create_app():
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
 
-
+    @app.route ("/home")
+    def home():
+        return render_template("index.html")
     @app.route ("/", methods=['GET', 'POST'])
     def login():
         print("La methode ", request.method)
@@ -38,7 +40,8 @@ def create_app():
             email = request.form.get('email')
             password = request.form.get('pwd')
             return controlleur.login(model, email, password)
-        return render_template("index.html", user=current_user)
+        else :
+            return render_template("index.html", user=current_user)
     
        
        
@@ -115,7 +118,10 @@ def create_app():
 
         return render_template("inscription.html", user=current_user)
 
-
+    @app.route('/flash')
+    def flash():
+        message = request.args.get("msg")
+        return render_template("flash.html", msg=message)
     @login_manager.user_loader
     def load_user(id):
         return User.query.get(int(id))

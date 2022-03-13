@@ -23,7 +23,7 @@ services:
     labels:
     - traefik.enable=true
     - traefik.http.routers.randommeal.rule=Host(`planifrepas`)
-    - traefik.http.routers.randommeal.rule=PathPrefix(`/`)
+    - traefik.http.routers.randommeal.rule=PathPrefix(`/planifrepas`)
     - traefik.http.routers.randommeal.entrypoints=web
     depends_on:
     - mysqldb
