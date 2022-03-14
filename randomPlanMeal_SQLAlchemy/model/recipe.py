@@ -1,24 +1,24 @@
 
-from sqlalchemy.orm import sessionmaker, Session, load_only
 import pymysql
+from sqlalchemy.orm import sessionmaker, Session, load_only
 from sqlalchemy.ext.automap import automap_base
 from model.db import Db
-from sqlalchemy import create_engine, MetaData, Table, Column
-from sqlalchemy.orm import defer
-from sqlalchemy.orm import undefer
+from sqlalchemy import create_engine, MetaData, Table, Column, distinct
+from sqlalchemy.orm import defer, undefer
 from sqlalchemy.sql.expression import func
+
 
 class Recipe():
     def __init__(self,db):
         self.db=db
       
-    # @classmethod
+  
     def readPlat(self):
         self.resultQuety=[]
         self.test=self.db.session.query(self.db.Recette).\
             with_entities(self.db.Recette.id_recette, self.db.Recette.nom_recette, self.db.Categorie.nom_categorie).\
             join(self.db.Categorie).\
-            filter(self.db.Categorie.nom_categorie.like("Plat principal")).\
+            filter(self.db.Categorie.nom_categorie.like("Plat principal")).distinct().\
                 order_by(func.rand()).limit(14)
         self.result=self.test.all()
         for ele in self.result:
@@ -28,12 +28,11 @@ class Recipe():
         return  self.resultQuety
     
     def readEntree(self):
-         
         self.resultQuety=[]
         self.test=self.db.session.query(self.db.Recette).\
             with_entities(self.db.Recette.id_recette, self.db.Recette.nom_recette, self.db.Categorie.nom_categorie).\
             join(self.db.Categorie).\
-            filter(self.db.Categorie.nom_categorie.like("Entree")).\
+            filter(self.db.Categorie.nom_categorie.like("Entree")).distinct().\
                 order_by(func.rand()).limit(14)
         self.result=self.test.all()
         for ele in self.result:
@@ -44,7 +43,6 @@ class Recipe():
     
     def readRecipe(self, id):
         self.resultQuety=[]
-        
         dictRecipe ={}
         dictIngredients={}
         rowsIngredients=[]

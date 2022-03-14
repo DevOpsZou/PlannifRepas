@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recette
+  namespace: ingress-nginx
+spec:
+  selector:
+    matchLabels:
+      app: recette
+
+  template:
+    metadata:
+      labels:
+        app: recette
+    spec:
+      containers:
+      - image: zafoutni/database:1.0.1
+        name: recette
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: root
+          - name: MYSQL_DATABASE
+            value: recettebis
+          - name: MYSQL_ROOT_USER
+            value: root
+        ports:
+        - containerPort: 3306
+          name: recette
+        volumeMounts:
+          - mountPath: "/mnt/azure"
+            name: volume
+      volumes:
+      - name: volume
+        persistentVolumeClaim:
+          claimName: azure-managed-disk
+

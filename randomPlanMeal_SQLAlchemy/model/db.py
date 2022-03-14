@@ -1,15 +1,11 @@
 
 import os
-from dotenv import load_dotenv
-
-from sqlalchemy.orm import sessionmaker, Session, load_only
 import pymysql
+from dotenv import load_dotenv
+from sqlalchemy.orm import sessionmaker, Session, load_only, undefer, defer
 from sqlalchemy.ext.automap import automap_base
-
 from sqlalchemy import create_engine, MetaData, Table, Column
-from sqlalchemy.orm import defer
-from sqlalchemy.orm import undefer
-from  sqlalchemy.sql.expression import func
+from sqlalchemy.sql.expression import func
 
 '''
 Authors : Zoubida AFOUTNI
@@ -30,18 +26,19 @@ class Db():
     def url(self, value):
         self._url = "%s://%s:%s@%s:%s/%s" % (
         os.getenv("DRIVER"),
-        os.getenv("USER"),
-        os.getenv("PASSWORD"),
-        os.getenv("HOST"),
-        os.getenv("PORT"),
-        os.getenv('DATABASE')
+        os.getenv("MYSQL_DATABASE_USER"),
+        os.getenv("MYSQL_ROOT_PASSWORD"),
+        os.getenv("MYSQL_SERVICE_HOST"),
+        int(os.getenv("MYSQL_DATABASE_PORT")),
+        os.getenv('DB_NAME')
     )
-   
+    
 
     def logging(self):
         """[contains code to connect to database : recettebis]
         """
         if self.url != "sqlite:///" :
+            print(self.url)
             self.engine = create_engine(self.url)
             self.DBSession = sessionmaker(bind=self.engine)
             self.session = self.DBSession()
@@ -50,15 +47,8 @@ class Db():
             self.Base = automap_base(metadata=self.metadata)
             self.metadata.reflect(self.engine)
             self.Base.prepare()
-
             self.Recette = self.Base.classes.recette
             self.Categorie = self.Base.classes.categorie
             self.Recette_ingredient=self.Base.classes.recette_ingredients
             self.Ingredient=self.Base.classes.ingredient
             self.Etapes=self.Base.classes.etapes
-
-      
- 
-     
-
-

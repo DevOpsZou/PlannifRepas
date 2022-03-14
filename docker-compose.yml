@@ -1,0 +1,77 @@
+version: '3.7'
+services: 
+  mysqldb:
+    build: ./databasesrecette/.
+    ports:
+    - 3306:3306
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD : root
+    volumes: 
+      - ./databasesrecette/dataSave:/var/lib/mysql
+    networks:
+      - web
+  
+  randommeal:
+    build: ./randomPlanMeal_SQLAlchemy/.
+    ports:
+    - 9001:80
+    environment:
+    # - CONSUL_HOST=consul
+    # - CONSUL_PORT=8500
+    - HOST=mysqldb
+    labels:
+    - traefik.enable=true
+    - traefik.http.routers.randommeal.rule=Host(`planifrepas`)
+    - traefik.http.routers.randommeal.rule=PathPrefix(`/planifrepas`)
+    - traefik.http.routers.randommeal.entrypoints=web
+    depends_on:
+    - mysqldb
+    networks:
+      - web
+  admin:
+    build: ./loginFlask/.
+    ports:
+    - 9000:80
+    environment:
+    # - CONSUL_HOST=consul
+    # - CONSUL_PORT=8500
+    - HOST=mysqldb
+   
+    # command: --disable-host-check
+    labels:
+    - traefik.enable=true
+    - traefik.http.routers.admin.rule=Host(`admin`)
+    - traefik.http.routers.admin.rule=PathPrefix(`/`)
+    - traefik.http.routers.admin.entrypoints=web
+    depends_on:
+    - mysqldb
+    networks:
+      - web
+  traefik:
+    image: traefik:v2.5
+    command:
+    - --api.insecure=true
+    - --providers.docker=true
+    - --providers.docker.exposedbydefault=false
+    - --entrypoints.web.address=:80
+    # - --providers.consulcatalog.endpoint.address=consul:8500"
+    # - --providers.consulcatalog.defaultRule=PathPrefix(`{{ .Name }}`)
+    - --serversTransport.insecureSkipVerify=true
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+    - 80:80
+    - 8888:8080
+    networks:
+      - web
+
+  # consul:
+  #  image: consul
+  #  ports:
+  #  - 9500:8500
+    
+networks:
+  web:
+    external:
+      name: web

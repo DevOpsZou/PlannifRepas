@@ -1,12 +1,6 @@
-FROM python:latest
-COPY ./requirements.txt /app/requirements.txt
-
-WORKDIR /app
-
+FROM python:3.9.10
+COPY requirements.txt /requirements.txt
 RUN pip install -r requirements.txt
-
-COPY . /app
-
+COPY . /
 ENTRYPOINT [ "python" ]
-
 CMD [ "app.py" ]

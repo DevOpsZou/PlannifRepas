@@ -1,0 +1,7 @@
+flask
+Flask-SQLAlchemy
+flask-login
+python-dotenv
+pymysql
+cryptography
+requests
