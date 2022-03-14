@@ -95,15 +95,15 @@ def create_app():
 
             user = db.session.query(db.User).filter(db.User.email==email).first()
             if user:
-                flash('Email already exists.', category='error')
+                flash('Email already exists.')
             elif len(email) < 4:
-                flash('Email must be greater than 3 characters.', category='error')
+                flash('Email must be greater than 3 characters.')
             elif len(first_name) < 2:
-                flash('First name must be greater than 1 character.', category='error')
+                flash('First name must be greater than 1 character.')
             elif password1 != password2:
-                flash('Passwords don\'t match.', category='error')
+                flash('Passwords don\'t match.')
             elif len(password1) < 7:
-                flash('Password must be at least 7 characters.', category='error')
+                flash('Password must be at least 7 characters.')
             else:
                 stmt = (
                     insert(db.User).                    
@@ -113,7 +113,7 @@ def create_app():
                 db.engine.execute(stmt)
                 db.session.commit()
          
-                flash('Account created!', category='success')
+                # flash('Account created!')
                 return redirect(url_for('login'))
 
         return render_template("inscription.html", user=current_user)

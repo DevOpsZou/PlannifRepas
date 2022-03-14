@@ -13,9 +13,9 @@ class Controlleur():
             if check_password_hash(user.password, password):
                 return render_template("accueil.html")
             else :
-                flash('Mot de passe incorrect.', category='error')
+                flash('Mot de passe incorrect.')
         else:
            
-            flash('Cet email n\'existep pas.', category='error')
+            flash('Cet email n\'existep pas.')
         
         return render_template("index.html")

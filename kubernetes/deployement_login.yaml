@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: flask
-        image: zafoutni/login:1.0.2
+        image: zafoutni/login:1.0.3
         ports:
           - containerPort: 5000
         env: 
