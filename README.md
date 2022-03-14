@@ -8,59 +8,39 @@ Entrez ici les instructions pour bien débuter avec votre projet...
 
 ### Pré-requis
 
-Ce qu'il est requis pour commencer avec votre projet...
+- Installer les requirements
 
-- Programme 1
-- Programme 2
-- etc...
+```python
+ pip install -r requirements.txt 
+```
+- Docker
+- K3d (pour un test en local)
+- Un compte Azure (pour tester sur un AKS)
+- Terraform
+- MysQL 
+  
+### Installation et démarrage
 
-### Installation
-
-Les étapes pour installer votre programme....
-
-Dites ce qu'il faut faire...
-
-_exemple_: Executez la commande ``telnet mapscii.me`` pour commencer ensuite [...]
-
-
-Ensuite vous pouvez montrer ce que vous obtenez au final...
-
-## Démarrage
-
-Dites comment faire pour lancer votre projet
+1. Pour tester en local il suffit de lancer docker compose
+2. Pour tester sur k3d en local  il suffit de créer un cluster voici un exemple :
+``` kubectl
+k3d cluster create clusterComplexe --api-port 127.0.0.1:6551 --servers 1 --agents 1
+```
+et lancer les manifests dans le dossier kubernetes.
+3. Pour deployer sur le cloud :
+   - Créer cluster en lancant le script terraform
+   - Lancer les maifests kubernetes
+   
 
 ## Fabriqué avec
 
-Entrez les programmes/logiciels/ressources que vous avez utilisé pour développer votre projet
+Python, Flask, CSS, HTML, MySQL, SQLAlchemy, Yaml, GithubAction, Terraform, Keubernetes, Docker.
 
-_exemples :_
-* [Materialize.css](http://materializecss.com) - Framework CSS (front-end)
-* [Atom](https://atom.io/) - Editeur de textes
-
-## Contributing
-
-Si vous souhaitez contribuer, lisez le fichier [CONTRIBUTING.md](https://example.org) pour savoir comment le faire.
 
 ## Versions
-Listez les versions ici 
-_exemple :_
-**Dernière version stable :** 5.0
-**Dernière version :** 5.1
-Liste des versions : [Cliquer pour afficher](https://github.com/your/project-name/tags)
-_(pour le lien mettez simplement l'URL de votre projets suivi de ``/tags``)_
+
 
 ## Auteurs
-Listez le(s) auteur(s) du projet ici !
-* **Jhon doe** _alias_ [@outout14](https://github.com/outout14)
-
-Lisez la liste des [contributeurs](https://github.com/your/project/contributors) pour voir qui à aidé au projet !
-
-_(pour le lien mettez simplement l'URL de votre projet suivi de ``/contirubors``)_
 
 ## License
 
-Ce projet est sous licence ``exemple: WTFTPL`` - voir le fichier [LICENSE.md](LICENSE.md) pour plus d'informations
-
-## Image Docker
-docker tag plannifrepas_admin:latest zafoutni/plannifrepas:latest
-docker push new-repo:tagname
