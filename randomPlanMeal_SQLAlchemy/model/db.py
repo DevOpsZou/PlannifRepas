@@ -52,9 +52,3 @@ class Db():
             self.Recette_ingredient=self.Base.classes.recette_ingredients
             self.Ingredient=self.Base.classes.ingredient
             self.Etapes=self.Base.classes.etapes
-
-      
- 
-     
-
-
