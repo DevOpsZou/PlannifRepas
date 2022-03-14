@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -35,51 +36,65 @@
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/">Se connecter</a></li>
                     </ul>
                 </div>
+
             </div>
-        </nav>
-        <section class="page-section cta">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-9 mx-auto">
-                        <div class="cta-inner bg-faded text-center rounded">
-                            <div id="okabo" class="row">
-                       
+        </div>
+    </nav>
+    <section class="page-section cta">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <div class="cta-inner bg-faded text-center rounded">
+                        <div id="okabo" class="row">
 
 
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-lg">
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-sm-5-center" >
-                                                        <section class="recette" id="title">
-                                                            <h3>Titre </h3>    
-                                                           
-                                                              {{data.get("nom_recette")}}
-                                                        
-                                                        </section>
-                                                        <section class="recette" id="duree">
-                                                            <h3>Durée </h3>    
-                                                           
-                                                              {{data.get("duree_recette")}}
-                                                        
-                                                        </section>
-                                                        <section class="recette" id="ingredient">
-                                                            <h3>Ingredients </h3>    
-                                                            {%for value in data.get('nom_ingredient')%} 
-                                                                 <li> {{value.get("quantite")}} {{value.get("mesure")}} de {{value.get("nom_ingredient")}} </li>
-                                                             {% endfor %} 
-                                                   
-                                                          
-                                                        </section>
-                                                        <section class="recette" id="etape">
-                                                        <h3>Instructions </h3>    
-                                                            {{data.get('etape_desc')}}
-                                                        </section>
-                             
-                            
-                            
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-sm-5-center">
+                                                    <section class="recette" id="title">
+                                                        <h3>Titre </h3>
+
+                                                        {{data.get("nom_recette")}}
+
+                                                    </section>
+                                                    <section class="recette" id="duree">
+                                                        <h3>Durée </h3>
+
+                                                        {{data.get("duree_recette")}}
+
+                                                    </section>
+                                                    <section class="recette" id="ingredient">
+                                                        <h3>Ingredients </h3>
+                                                        {%for value in data.get('nom_ingredient')%}
+                                                        <li> {{value.get("quantite")}} {{value.get("mesure")}} de {{value.get("nom_ingredient")}} </li>
+                                                        {% endfor %}
+
+
+                                                    </section>
+                                                    <section class="recette" id="etape">
+                                                        <h3>Instructions </h3>
+                                                        {{data.get('etape_desc')}}
+                                                    </section>
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <form action="/entree">
+                                            <button class="btn btn-secondary" type="submit">replanifier</button>
+                                        </form>
+
+
+                                    </div>
+                                </div>
                             </div>
+
                             </div>
                             </div>
                             
@@ -105,3 +120,4 @@
         <script src="../static/js/scripts.js"></script>
     </body>
 </html>
+

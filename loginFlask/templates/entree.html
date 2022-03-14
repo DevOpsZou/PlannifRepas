@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -60,76 +61,90 @@
           <p>  </p>
         <!-- Formulaire de recettes-->  
 
-        <div id="grille" class="row" >
-            
-                                        <table class="table">
-                                            <thead>
-                                              <tr>
-                                                <th scope="col">Heure</th> 
-                                                <th scope="col">Lundi</th>
-                                                
-                                                <th scope="col">Mardi</th>
-                                                <th scope="col">Mercredi</th>
-                                                
-                                                <th scope="col">Jeudi</th>
-                                                <th scope="col">Vendredi</th>
-                                                
-                                                <th scope="col">Samedi</th>
-                                                <th scope="col">Dimanche</th>
-                                               
-                                              </tr>
-                                              
-                                            </thead>
-                                                
-                                            
-                                           
-                                            <tbody>
-                                              <tr>
-                                               
-                                                <tr>
-                                                    <th scope="row">Midi</th>
-                                                    {%for i in range(0, len-7)%}   
-                                                   
-                                                                      
-                                                    <td> <a href="{{url_for('displayRecipe', id = data[i].get('id_recette'))}}"> {{data[i].get('nom_recette')}}</a></td>
-                                                                                          
-                                                     
-                                                     {% endfor %} 
-                                                
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Soir</th>
-                                                {%for i in range(len-7, len)%}   
 
-                                                <td> <a href="{{url_for('displayRecipe', id = data[i].get('id_recette'))}}">{{data[i].get('nom_recette')}}</a></td>
-                                                                               
-                                                     
-                                                     {% endfor %} 
-                                                
-                                             
-                                    
-                                            </tr> 
-                                              </tr>
-                                              
-                                            </tbody>
-                                           
-                                          </table>
-             
-            
-            
-            </div>
-            </div>
-            </div>
-            
-            </div>
-        
+    <section class="page-section cta">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <div class="cta-inner bg-faded text-center rounded">
+
+                        <!-- Bouton planifier-->
+
+                        <div class="col-sm-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <form action="#section_further_down">
+                                        <button type="submit" id="section_further_down">Planifier</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                        <p> </p>
+                        <!-- Formulaire de recettes-->
 
-                
+                        <div id="grille" class="row">
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Heure</th>
+                                        <th scope="col">Lundi</th>
+
+                                        <th scope="col">Mardi</th>
+                                        <th scope="col">Mercredi</th>
+
+                                        <th scope="col">Jeudi</th>
+                                        <th scope="col">Vendredi</th>
+
+                                        <th scope="col">Samedi</th>
+                                        <th scope="col">Dimanche</th>
+
+                                    </tr>
+
+                                </thead>
+
+
+
+                                <tbody>
+                                    <tr>
+
+                                        <tr>
+                                            <th scope="row">Midi</th>
+                                            {%for i in range(0, len-7)%}
+
+
+                                            <td> <a href="{{url_for('displayRecipe', id = data[i].get('id_recette'))}}"> {{data[i].get('nom_recette')}}</a></td>
+
+
+                                            {% endfor %}
+
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Soir</th>
+                                            {%for i in range(len-7, len)%}
+
+                                            <td> <a href="{{url_for('displayRecipe', id = data[i].get('id_recette'))}}">{{data[i].get('nom_recette')}}</a></td>
+
+
+                                            {% endfor %}
+
+
+
+                                        </tr>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
 
        
         <footer class="footer text-faded text-center py-5">
@@ -141,3 +156,4 @@
         <script src="./static/js/scripts.js"></script>
     </body>
 </html>
+
